@@ -11,7 +11,7 @@ use App\Models\Category;
 
 class MenuController extends Controller
 {
-    function data_menu()
+    function data_menu(Request $request)
     {
         $menus = Menu::with('category')->get();
 

@@ -11,10 +11,14 @@ use App\Models\Category;
 
 class SellerMenuController extends Controller
 {
-    function data_menu_seller()
+    function data_menu_seller(Request $request)
     {
-        $menus = Menu::with('category')->get();
-
+        if ($request->has('search')) {
+            $menus=Menu::where('menu_name', 'LIKE', '%'.$request->search.'%')->get();
+        }else {
+            $menus = Menu::all();
+        }
+    
         return view('pointakses/seller/data_menu_seller/tampilkan_menu_seller', compact('menus'));
     }
 

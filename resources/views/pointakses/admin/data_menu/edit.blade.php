@@ -48,27 +48,11 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="vendor">Select Vendor</label>
-                    <select class="form-control" id="vendor" name="vendor">
-                        <option value="" selected>Select vendor</option>
-
-                        @if ($vendors && count($vendors) > 0)
-                            @foreach ($vendors as $vendor)
-                                <option value="{{ $vendor['id'] }}" {{ $vendor['id'] == $menus->vendor_id ? 'selected' : '' }}>
-                                    {{ $vendor->vendor_name }}
-                                </option>
-                            @endforeach
-                        @endif
-                    </select>
-                </div>
-
-                <div class="form-group">
                     <label for="menu_desc">Deskripsi Menu:</label>
                     <textarea class="form-control" name="menu_desc" id="menu_desc" rows="3">{{ $menus->menu_desc }}</textarea>
                 </div>
             </div>
             <!-- /.card-body -->
-
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                 <a href="{{ route('datamenu') }}" class="btn btn-primary">Kembali ke Daftar Menu</a>
