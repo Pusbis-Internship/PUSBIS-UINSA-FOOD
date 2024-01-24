@@ -56,9 +56,7 @@
                                                 No Category
                                             @endif
                                         </td>
-                                        <td>
-                                            {{ $menu->users_id }}
-                                        </td>
+                                        <td>{{ $menu->users_id }}</td>
                                         <td>
                                             <a href="{{ route('deletemenuseller', ['id' => $menu->id]) }}"
                                                 class="btn btn-danger"
