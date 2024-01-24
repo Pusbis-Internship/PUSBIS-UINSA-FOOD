@@ -14,11 +14,10 @@ class SellerMenuController extends Controller
     function data_menu_seller(Request $request)
     {
         if ($request->has('search')) {
-            $menus=Menu::where('menu_name', 'LIKE', '%'.$request->search.'%')->get();
-        }else {
+            $menus = Menu::where('menu_name', 'LIKE', '%' . $request->search . '%')->get();
+        } else {
             $menus = Menu::all();
         }
-    
         return view('pointakses/seller/data_menu_seller/tampilkan_menu_seller', compact('menus'));
     }
 
@@ -71,7 +70,7 @@ class SellerMenuController extends Controller
         return view('pointakses/seller/data_menu_seller/edit', compact('menus'));
     }
 
-    function menu_update(Request $request, $id):RedirectResponse
+    function menu_update(Request $request, $id): RedirectResponse
     {
         $menus = Menu::find($id);
         $menus->menu_name = $request->input('menu_name');
@@ -98,7 +97,8 @@ class SellerMenuController extends Controller
             $menus->save();
         }
 
-        return redirect()->route('data_menu_seller')->with('Berhasil', 'Menu berhasil diupdate.');;
+        return redirect()->route('data_menu_seller')->with('Berhasil', 'Menu berhasil diupdate.');
+        ;
     }
     public function menu_delete($id)
     {

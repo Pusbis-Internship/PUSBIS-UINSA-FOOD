@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use App\Models\Menu;
 use App\Models\Category;
 
@@ -13,8 +13,11 @@ class MenuController extends Controller
 {
     function data_menu(Request $request)
     {
-        $menus = Menu::with('category')->get();
-
+        if ($request->has('search')) {
+            $menus = Menu::where('menu_name', 'LIKE', '%' . $request->search . '%')->get();
+        } else {
+            $menus = Menu::all();
+        }
         return view('pointakses/admin/data_menu/tampilkan_menu', compact('menus'));
     }
 
@@ -66,7 +69,6 @@ class MenuController extends Controller
 
         return view('pointakses/admin/data_menu/edit', compact('menus'));
     }
-
 
     function menu_update(Request $request, $id)
     {
