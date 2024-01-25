@@ -17,7 +17,12 @@ class User extends Authenticatable
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
+     * 
      */
+
+     protected $table = 'users';
+    protected $guarded = ['id'];
+
     protected $fillable = [
         'nama_lengkap',
         'email',
@@ -48,4 +53,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function menus(){
+        return $this->hasMany(Menu::class, 'users_id');
+    }
 }
