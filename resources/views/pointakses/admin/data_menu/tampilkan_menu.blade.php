@@ -58,7 +58,7 @@
                                             @endif
                                         </td>
                                         <td>
-                                            {{ $menu->user->nama_lengkap }}
+                                            {{ $menu->user->nama_lengkap}}
                                         <td>
                                             <a href="{{ route('deletemenu', ['id' => $menu->id]) }}" class="btn btn-danger"
                                                 onclick="return confirmDelete('{{ $menu->id }}', '{{ $menu->menu_name }}');">

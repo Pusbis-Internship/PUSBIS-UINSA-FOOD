@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="category">Select Vendor</label>
+                        <label for="vendor">Select Vendor</label>
                         <select class="form-control" id="vendor" name="vendor">
                             <option value="" selected>Select Vendor</option>
 
